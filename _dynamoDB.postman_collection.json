@@ -1,0 +1,378 @@
+{
+	"info": {
+		"_postman_id": "7d0d8753-04bb-4d1d-8e3d-f7809f6682c5",
+		"name": "_dynamoDB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Tabela",
+			"item": [
+				{
+					"name": "Criar Tabela",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Movies\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tabelas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tabelas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Tabela",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Movies\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tabelas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tabelas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Tabelas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/tabelas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tabelas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Carregar Arquivo de Filmes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/filmes/carregar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"filmes",
+								"carregar"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Filmes",
+			"item": [
+				{
+					"name": "Cadastrar Filme",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Filme ruim\",\r\n    \"ano\": 2020,\r\n    \"info\": {\r\n        \"plot\": \"Nada acontece\",\r\n        \"rating\": 10\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/filmes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"filmes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Filme",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Filme ruim\",\r\n    \"ano\": 2020,\r\n    \"info\": {\r\n        \"plot\": \"Nada acontece alterado\",\r\n        \"rating\": 1,\r\n        \"actors\": [\"João\", \"Maria\", \"Jota\", \"Zeca\"]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/filmes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"filmes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Filme (condicionalmente)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Filme ruim\",\r\n    \"ano\": 2020\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/filmes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"filmes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Incrementar nota do Filme",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Filme ruim\",\r\n    \"ano\": 2020,\r\n    \"info\": {\r\n        \"rating\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/filmes/incrementar-nota",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"filmes",
+								"incrementar-nota"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove primeiro ator se filme tem mais de três atores",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Filme ruim\",\r\n    \"ano\": 2020\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/filmes/remove-primeiro-ator-se-filme-tem-mais-tres",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"filmes",
+								"remove-primeiro-ator-se-filme-tem-mais-tres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pesquisar Filme",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/filmes?ano=2020&titulo=Filme ruim",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"filmes"
+							],
+							"query": [
+								{
+									"key": "ano",
+									"value": "2020"
+								},
+								{
+									"key": "titulo",
+									"value": "Filme ruim"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pesquisar Filmes dado um ano, titulo inicio e fim",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/filmes/pesquisar-por-ano-titulo-inicio-fim?ano=2020&de=F&ate=H",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"filmes",
+								"pesquisar-por-ano-titulo-inicio-fim"
+							],
+							"query": [
+								{
+									"key": "ano",
+									"value": "2020"
+								},
+								{
+									"key": "de",
+									"value": "F"
+								},
+								{
+									"key": "ate",
+									"value": "H"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pesquisar Filmes dado um ano",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/filmes/pesquisar-por-ano?ano=2020",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"filmes",
+								"pesquisar-por-ano"
+							],
+							"query": [
+								{
+									"key": "ano",
+									"value": "2020"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pesquisar Filmes entre os anos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/filmes/pesquisar-entre-anos?anoInicial=2020&anoFinal=2020",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"filmes",
+								"pesquisar-entre-anos"
+							],
+							"query": [
+								{
+									"key": "anoInicial",
+									"value": "2020"
+								},
+								{
+									"key": "anoFinal",
+									"value": "2020"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
